@@ -1,0 +1,70 @@
+.header{
+    margin: 10px 20px;
+    box-shadow: 0px 15px 10px -15px #111;  
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.arroy{
+    display: flex;
+    align-items: center;
+}
+
+.arroy i{
+    margin-left:15px ;
+}
+
+.arroy h4{
+    padding: 20px;
+}
+
+
+
+.shopCart {
+    margin-right: 25px;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.cartBox{
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background-color: azure;
+}
+.proImg img{
+ 
+    width:200px;
+    height:200px;
+}
+
+.proName{
+    width:200px;
+    font-size:13px;
+}
+
+.count input{
+    width:50px;
+}
+
+.bord{
+    
+    padding: 25px 20px;
+    border-radius:25px;
+    background-color: #e9f3f7;
+    
+}
+
+.hcolor{
+    color:blue;
+    font-weight: 800;
+}
+
+.info{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+   padding: 10px 30px;
+}
