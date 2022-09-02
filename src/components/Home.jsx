@@ -1,23 +1,26 @@
-import React, {useState,useEffect} from 'react'
+import React ,{useState,useEffect} from 'react'
 import './Home.css'
 import Web from './image/img2.jpg'
+import Cart from "./Cart"
+import ShopNav from './ShopNav'
 
 
 function Home() {
+  const [dataa ,setDataa] = useState([])
 
-  const [storeData ,setStoreData] = useState([])
-
-  const getApi= async ()=>{
-  const respnse = await fetch('https://jsonplaceholder.typicode.com/posts')
-  // let data = await respnse.json()
-  // console.log(data)
-
-  setStoreData(await respnse.json())
+ const getApi= async ()=>{
+  try{
+    const fatchApi = await fetch('https://fakestoreapi.com/products')
+    setDataa(await fatchApi.json())
+  }catch(error){
+    console.error(error)
   }
+ }
 
   useEffect(()=>{
-     getApi()
+    getApi()
   },[])
+
   
   return (
       <section className="">
@@ -35,40 +38,31 @@ function Home() {
               </div>
             </div>
           </div>
-
-          <div className="container-fluid api">
-                <div className="row marg">
-           <h1 className="heading">Fatch api</h1>
-            {
-              storeData.map((stateVal ,id)=>{
-                return (
-                  
-            <div className="col-md-4 colo" key={id}>
-              <div className="box">
-                <div className="image">
-                  <img src="" alt=""  />
-                </div>
-                <div className="text">
-                  <p>{stateVal.title}</p>
-                  <div className="innerBox">
-                  <div className="a"><p>{stateVal.id}</p> <span>55</span></div>
-                  <div className="a"><p>{stateVal.userId}</p> <span>55</span></div>
-                  <div className="a"><p>id</p> <span>55</span></div>  
-                  </div>
-                </div>
-              </div>
-                <p>{stateVal.body}</p>
-            </div>
-        
-            )
-              })
-            }
-
           </div>
-        </div>
-        </div>
+          <ShopNav/>
+     <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-10 mx-auto">
+            <div className="totalTop mt-4 mx-3">
+              <p>Total :<span>$2000</span></p>
+              <button onClick={()=>(setDataa([]))}>Remove All</button>
+            </div>
+          <div className={dataa.length>0? "collection mt-3" : '' }>
+            <div className="row d-flex justify-content-between align-items-center">
+              {
+              dataa.map((event)=>{
+                return ( 
+                  <Cart key={event.id} {...event} dataa={dataa} setDataa={setDataa}/>      
+                )
+              })
+              }
+            </div>
+          </div>
+          </div>
+      </div>
+     </div>  
+
       </section>
   )
-}
-
+  }
 export default Home

@@ -9,6 +9,7 @@ function Service() {
 
   const [data ,setData] = useState([])
   const [load ,setLoad] = useState(true)
+  const [total ,setTotal] = useState(0)
 
   const getInfo= async ()=>{
     try{
@@ -31,6 +32,14 @@ function Service() {
       <h1 className="text-center">Loading...</h1>
     )
   }
+
+  const delet =(id)=>{
+    let newFil = data.filter((val,valIdd)=>{
+      return( id !== val.id)
+    })
+    setData([newFil])
+  }
+
   return (
     <>
       
@@ -43,7 +52,7 @@ function Service() {
                 <h4>Shopping Cart</h4>
                 </div>
                 <div className="shopCart"><i><FaShoppingBag/></i>
-                <span>(0)</span>
+                <span>{total}</span>
                 </div>
               </div>
             </div>
@@ -59,12 +68,12 @@ function Service() {
             
           </div>
               </div>
-            {/* <Scrollbars> */}
-              {
-                data.map((dataVal , Iddd)=>{
+            {/* <Scrollbars> -------------(agr API me pele se id hoto alg se id lagana jaruri nahi he) */}
+              {      
+                data.map((dataVal)=>{
                   const {id,title,price,category,description,image} = dataVal
                   return (
-                    <div className="mainBox" key={Iddd}>
+                    <div className="mainBox" key={id}>
                     <div className="cartBox" >
                       <div className="proImg">
                       <img src={image} className="img-fluid" alt="img"/>
@@ -75,15 +84,15 @@ function Service() {
                         <p>{description}</p>
                       </div>
                       <div className="count">
-                        <i><FaRegTimesCircle/></i>
+                        <i onClick={()=> setTotal( total>0 ? total - 1 : 0)}><FaRegTimesCircle/></i>
                         <input type="text" />
-                        <i><FaRegPlusSquare/></i>
+                        <i  onClick={()=> setTotal(total + 1)}><FaRegPlusSquare/></i>
                       </div>
                       <div className="price">
                         <span>{price}</span> 
                       </div>
                       <div className="none">
-                        <i><FaRegTrashAlt/></i>
+                        <i onClick={()=>delet(id)}><FaRegTrashAlt /></i>
                         <p>{id}</p>
                       </div>
                     </div>
@@ -104,3 +113,19 @@ function Service() {
 }
 
 export default Service
+
+//  <div className="col-md-4 collBox">
+//                 <div className="row">
+//                   <div className="col-12 cartImg">
+//                     <img src={Web} alt="" className="img-thumbnail"/>
+//                   </div>
+//                   <div className="col-12">
+//                     <h5>Name</h5>
+//                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, ducimus.</p>
+//                   </div>
+//                   <div className="col-12 d-flex justify-content-between  align-items-center ">
+//                     <h5>price <span>$55</span></h5>
+//                     <i><FaCalendarPlus/></i>
+//                   </div>
+//                 </div>
+//               </div>

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Service from './components/Service';
+import Inbox from './components/Inbox'
 import {
   Routes,
   Route,
@@ -19,6 +20,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Service" element={<Service />} />
+        <Route path="/Inbox" element={<Inbox />} />
       </Routes>
     </>
   );
