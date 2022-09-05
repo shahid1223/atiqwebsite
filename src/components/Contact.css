@@ -1,0 +1,97 @@
+.heading{
+    margin: 25px;
+    padding: 50px;
+}
+ .heading h1{
+    text-align: center;
+    color: blue;
+    font-size: 40px;
+ }
+
+ .animInP{
+    animation: slidein 4s  ease-in-out ;
+    font-size: 25px;
+    height: 50px;
+    margin: 20px 0px;
+ }
+
+ @keyframes slidein {
+    from{
+        font-size: 15px;
+        margin-left: 100%;
+        width: 400%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+        font-size: 25px;
+      }
+ }
+
+ .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email label{
+    margin: 10px 51px;
+    font-size: 20px ;
+    font-weight: 700;
+}
+
+
+.pass label{
+    margin: 10px 30px;
+    font-size: 20px ;
+    font-weight: 700;
+}
+
+.btna{
+    float: right;
+    width: 80px;
+    border: none;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.btna:hover{
+    background-color: white;
+    border: 2px solid blue;
+    color: black;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+form input{
+    width: 250px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+form{
+    border: 1px solid black;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.datastor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+    flex-direction: column;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+}
