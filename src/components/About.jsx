@@ -1,5 +1,6 @@
 import React ,{useReducer} from 'react'
 import Aboutimg from './image/img3.jpg'
+import './About.css'
 
 const initState = 0
 const reduce=(state,action)=>{
