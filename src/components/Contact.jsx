@@ -1,89 +1,70 @@
-import React,{useState} from 'react'
+import React ,{useState} from 'react'
+import './Contact.css'
+import { FcFullTrash } from "react-icons/fc";
 
 function Contact() {
+  const [email , setEmail] = useState('')
+  const [password , setPass] = useState('')
+  const [data ,setData] = useState([])
 
-  const [data , setData] = useState({
-    FullName : '',
-    Phone : '',
-    Email : '',
-    Pass : '',
-    msg : ''
+const submit =(event)=>{
+  event.preventDefault()
+  let newValue = {email : email , password :password} 
+  if(!email && !password){
+    alert('enter amail')
+  }else{
+    setData([...data, newValue])
+    setEmail('')
+    setPass('')
+  }
+}
+
+const delet=(id)=>{
+  let filt = data.filter((evl ,dataId)=>{
+    return (dataId !== id )
   })
-
-  const [valData , setValData] = useState([])
-
-  const ChangeValu =(event)=>{
-    const {name , value} = event.target;
-
-    setData((prev)=>{
-      return {
-        ...prev,
-        [name] : value
-      }
-    })
-  }
-  const submitval =(e)=>{
-    e.preventDefault()
-    if(data.FullName === '' && data.Phone === ''){
-      alert('empty value')
-    }else{
-      setValData([...valData,data])
-     setData({
-    FullName : '',
-    Phone : '',
-    Email : '',
-    Pass : '',
-    msg : ''})
-    }
-    // const newData = {FullName : data.FullName , Phone : data.Phone , Email : data.Email ,Pass : data.Pass , msg : data.msg }
-  }
+  setData(filt)
+}
 
   return (
-    <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-5 mt-5 mx-auto">
-            <form action="" onSubmit={submitval}>
-            <div className="mb-3">
-  <label htmlFor="exampleFormControlInput1" className="form-label">Full Name</label>
-  <input type="text" className="form-control" id="exampleFormControlInput1" name='FullName' value={data.FullName} onChange={ChangeValu} placeholder="Full Name"/>
-</div>
-            <div className="mb-3">
-  <label htmlFor="exampleFormControlInput1" className="form-label">Phone</label>
-  <input type="text" className="form-control" id="exampleFormControlInput1" name='Phone' value={data.Phone} onChange={ChangeValu} placeholder="Mobile Number"/>
-</div>
-            <div className="mb-3">
-  <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-  <input type="text" className="form-control" id="exampleFormControlInput1" name='Email' value={data.Email} onChange={ChangeValu} placeholder="Email"/>
-</div>
-            <div className="mb-3">
-  <label htmlFor="exampleFormControlInput1" className="form-label">Password</label>
-  <input type="password" className="form-control" id="exampleFormControlInput1" name='Pass' value={data.Pass} onChange={ChangeValu} placeholder="name@example.com"/>
-</div>
-<div className="mb-3">
-  <label htmlFor="exampleFormControlTextarea1" className="form-label">Message</label>
-  <textarea className="form-control" id="exampleFormControlTextarea1" name='msg' value={data.msg} onChange={ChangeValu} rows="3"></textarea>
-</div>
-<div className="col-12">
-    <button type="submit" className="btn btn-primary">Sign in</button>
-  </div>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-10 mx-auto">
+          <div className="heading">
+            <h1>Contact and your data id strore in backend</h1>
+            <p className='animInP'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem eaque hic earum. Delectus aliquam a ullam, tenetur distinctio deleniti. Ipsum.</p>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-10 mx-auto">
+           <div className="form">
+            <form action="" onSubmit={submit}>
+              <div className='email'>
+              <label htmlFor="Email">Email</label>
+              <input type="text" value={email} onChange={(e) =>{setEmail(e.target.value)}}/>
+              </div>
+              <div className='pass'>
+              <label htmlFor="Email">Password</label>
+              <input type="password" value={password} onChange={(e) =>{setPass(e.target.value)}}/>
+              </div>
+              <button className='btna' type='submit'>log in</button>
             </form>
-
-            <div className="valuestore">
+           </div>
+           <div className="datastor"> 
               {
-              valData.map((aryVal , indx)=>{
-                  return (
-                    <div className="box" key={indx}>
-                      <h4>{`the name is ${aryVal.FullName} ; PHONE ${aryVal.Phone} ; EMAIL ${aryVal.Email} ; Password ${aryVal.Pass} ; Message ${aryVal.msg}`}</h4>
+                data.map((dataVal , id)=>{
+                  return(
+                    <div className="box" key={id}>
+                    <h5 >{`EMAIL IS = ${dataVal.email}  , PASSWORD IS = ${dataVal.password}  ` } <FcFullTrash onClick={()=>delet(id)}/> </h5>
                     </div>
                   )
                 })
               }
-            </div>
-          </div>
+           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
