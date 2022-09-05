@@ -1,26 +1,8 @@
-import React ,{useReducer} from 'react'
+import React from 'react'
 import Aboutimg from './image/img3.jpg'
 import './About.css'
 
-const initState = 0
-const reduce=(state,action)=>{
-  console.log(state,action)
-  if(action.type === 'increase'){
-    return state +1
-  }
-  if(action.type === 'decrease'){
-    return (state > 0 ? state - 1 : 0)
-  }
-  return (state)
-}
-
 function About() {
-
-  const [state,dispatch] = useReducer(reduce,initState)
-
-  // useEffect(()=>{
-  //   document.title = `chat ${(state> 0? state: '')}` 
-  // })
   return (
     <section className="">
     <div className="container-fluid home">
@@ -38,16 +20,8 @@ function About() {
           </div>
         </div>
       </div>
+     
     </div>
-
-     {/* useReducer hook practice                       */}
-
-     <div className="useRedu">
-      <h1>{state}</h1>
-      <button onClick={()=>{dispatch({type: 'increase'})}}>INCREASE</button>
-      <button onClick={()=>{dispatch({type: 'decrease'})}}>DECREASE</button>
-     </div>
-
   </section>
   )
 }
