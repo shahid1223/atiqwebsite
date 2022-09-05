@@ -2,6 +2,12 @@
     color: blue;
 }
 
+.box1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .box2 img{
     float: right;
 }
@@ -41,5 +47,4 @@
     border-radius:50px;
     font-size:18px;
     transition:0.8s;
-    margin-left:60px;
 }

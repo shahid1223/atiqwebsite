@@ -13,7 +13,7 @@
 }
 
 .nav-link{
-  font-size: 18px !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
   padding:0 15px !important;
   color:black !important;
@@ -33,4 +33,8 @@
 
 .main{
   color: yellow !important;
+}
+
+.navbar-brand {
+  font-size: 45px !important;
 }

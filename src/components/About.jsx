@@ -1,5 +1,6 @@
 import React from 'react'
 import Aboutimg from './image/img3.jpg'
+import './About.css'
 
 function About() {
   return (
@@ -19,6 +20,7 @@ function About() {
           </div>
         </div>
       </div>
+     
     </div>
   </section>
   )

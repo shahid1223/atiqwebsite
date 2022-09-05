@@ -1,8 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css' 
+import { FaShoppingBag } from "react-icons/fa";
+import { useCart } from "react-use-cart"
+
 
 function Navbar() {
+  const {
+    isEmpty,
+    totalItems,
+  } = useCart();
+
   return (
     <div className="container-fluid nav-bg">
         <div className="row">
@@ -16,7 +24,7 @@ function Navbar() {
            <div className="collapse navbar-collapse" id="navbarSupportedContent">
      <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
            <li className="nav-item ">
-          <Link className="nav-link "  aria-current="page" to="/">Home</Link>
+          <Link className="nav-link "  to="/">Home</Link>
            </li>
           <li className="nav-item">
           <Link className="nav-link" to="/About">About</Link>
@@ -27,6 +35,9 @@ function Navbar() {
           </li>
           <li className="nav-item">
           <Link className="nav-link" to="/Service">Service</Link>
+          </li>
+          <li className="nav-item">
+          <Link className="nav-link" to="/shop"><FaShoppingBag/>{!isEmpty && <span>{totalItems}</span> }<span>cart</span></Link>
           </li>
         
       </ul>

@@ -9,7 +9,7 @@ function Home() {
           <div className="row">
             <div className="col-md-10 mx-auto">
               <div className="row marg">
-                <div className="col-md-6 my-5 box1">
+                <div className="col-md-6  box1">
                   <h1>Front end developer <strong>Atiq Developer</strong></h1>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius debitis est eum, pariatur ea nesciunt impedit dolor consequatur culpa fugiat.</p>
                 </div>
