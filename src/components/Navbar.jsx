@@ -39,7 +39,12 @@ function Navbar() {
           <li className="nav-item">
           <Link className="nav-link" to="/shop"><FaShoppingBag/>{!isEmpty && <span>{totalItems}</span> }<span>cart</span></Link>
           </li>
-        
+          <li className="nav-item">
+          <Link className="nav-link" to="/shop"><FaShoppingBag/>{!isEmpty && <span>{totalItems}</span> }<span>cart</span></Link>
+          </li>
+          <li className="nav-item">
+          <Link className="nav-link" to="/Nav">Nav</Link>
+          </li>
       </ul>
      
     </div>

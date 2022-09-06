@@ -1,0 +1,8 @@
+.offcanvas{
+    max-width: 50% !important;
+}
+
+.offcanvas-start{
+    right: 0 !important;
+    transform: translate(100%) !important;
+}
